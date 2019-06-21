@@ -1,0 +1,232 @@
+06/17/2019:
+Microservices benifits:
+************************
+
+Shorter developement times.
+Reliable & faster deployment.
+Security.
+Increased uptimes.
+Fast issue resolution.
+Highly scalble & better performaence
+Better ownership and knowledge.
+Right technology.
+Enables distributed teams.
+
+
+Comuunication:
+
+Synchronous/Asynchronous.
+
+
+Why Microservices Now:
+
+-Need to respond to change quickly.
+-Need for reliability.
+-Automated test tools.
+-Release & deployment tools.
+-Ondemanding hosting technology.
+-On-line cloud services.
+
+
+Principles:
+1.High Cohesion
+2.Autonomous-for REST API Spec(Swagger/RAML)
+3.Rescilience
+4.Observable.
+5.Automation
+
+Domain Driven Design:
+********************
+
+Sub domains:
+
+USer -Domain
+Oredr -Domain
+Product -Domain
+
+Service:
+
+1.Service Registry(Rgistry would work with load balancer).
+
+Regitry: USer
+		 Order
+		 Product.
+		 
+2.Gateway.	
+3.Metrics.
+4.Auditing.
+5.Rate Limiting.
+6.Host.
+7.Containers.
+8.Contineous delivery.
+9.External Configuration.
+10.
+	 
+
+
+
+./LIN51004648
+
+****************************
+
+For executing the Gradle projects:
+
+need to run -->bootRun--> task
+Gradle Tasks-->bootRun
+
+
+in core, there are 3 core services (gradle projects) and then run itneed to run bootRun task
+
+and then finally composite has a gradle projectthen try out curl commands
+
+Gradle 3.1 version
+Host Name: inpunwbs02-wcg.corp.capgemini.com 
+
+Preference-->Network-->Manual-->Host-->
+in Eclispe -->gradle --->refresh
+
+
+Step1 :
+******
+
+gradle -> refresh gradle
+
+Step 2:
+******
+
+inside STS.ini / eclipse.ini file
+
+add these lines at the end and restart your IDE
+
+
+-Dorg.eclipse.ecf.provider.filetransfer.excludeContributors=org.eclipse.ecf.provider.filetransfer.httpclient4
+
+-Dorg.eclipse.ecf.provider.filetransfer.retrieve.closeTimeout=3000
+
+-Dorg.eclipse.ecf.provider.filetransfer.retrieve.readTimeout=3000
+
+Step3 :
+******
+
+please run publishToMavenLocal task on core services to resolve dependency issue on ProductComposite
+
+Step2:
+*****
+
+curl -s localhost:8765/productcomposite/product/1
+
+
+
+******************************************
+Day 2:06/18/2019:
+
+
+Rest full wEb app:
+
+Spring boot:
+***********
+
+-Spring frame work is highly configurable.
+
+*Web
+*Front End
+*Data Acccess.
+*Security.
+
+rest api payment paypal:
+
+spring.io:site
+
+
+
+https://start.spring.io/ :
+https://start.spring.io/For Spring app scrach application
+2.1.5 version
+
+server.port=5000 -->in application.properties need to give for demo app
+
+Docker:
+******
+It helps to deploy the application in diff Environment.
+
+https://hub.docker.com/explore 
+
+
+Commands:
+********
+
+ssh -i "workstation-boot-keypair.pem" ubuntu@ec2-13-233-17-30.ap-south-1.compute.amazonaws.com (ubuntu@ec2-13-233-17-30.ap-south-1.compute.amazonaws.com) 
+
+
+scp -r -i workstation-boot-keypair.pem ./demo ubuntu@13.233.17.30:/home/ubuntu/<corp-id>-code 
+scp -r -i workstation-boot-keypair.pem ./demo ubuntu@13.233.17.30:/home/ubuntu/sakothap-code 
+
+sudo apt-get update && sudo apt-get install -y docker.io  :Cmd to install docker
+
+13.233.17.30:5000 -->Need to try in mobile phone browser
+
+commands:
+********
+sudo docker build -t abghode/boot . 
+sudo docker run -p 5000:5000 abghode/boot 
+
+Day 3:(06202019)
+***************
+day1 :Design/principles
+day2:Deploymemnt(REST API)
+day3:Coordinating among microservices(Spring cloud-registry,resilience)
+day4:Developing asyncronous short lived tasks and routung(Spring cloud,tasks,messaging ,API Gateway Devops?)
+
+
+###spring cloud applications:
+-Build common distributed systems pattern.
+-Making things concrete.
+
+Service Discovry
+Load balancing
+
+2:Microservices
+2:Client side applications
+https://fts.capgemini.com/private/18534767139456/Day-3A.zip
+
+https://fts.capgemini.com :To upload the projects
+
+
+Final code for eureka server :
+https://fts.capgemini.com/private/5568076589996/eureka-server.zip
+
+eureka:
+
+http://localhost:8761
+http://localhost:8085
+
+
+
+http://localhost:8085/dashboard?stationId=2  Dqash board accept for billboard application
+
+
+Pending : 
+
+Hystrix, Task, Zuul
+
+Day4 :06212019:
+******************
+
+
+Flow of the application
+
+Normal Flow
+UI->Registry->Service-CallTollorate
+
+Fallback Flow
+UI->Registry-service failed->circuit braker->Fallbackmethod/Backup Method
+
+
+
+https://fts.capgemini.com/private/16572995547668/evet-sink.zip
+https://fts.capgemini.com/private/35663872480760/processing-task.zip
+
+
+52.66.18.173:15672
+user guest
+pwd guest
